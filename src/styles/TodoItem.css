@@ -1,0 +1,37 @@
+.todo__item{
+    width: 90%;
+    max-width: 750px;
+    height: 4em;
+    background-color: rgb(181, 228, 254);
+    margin: 0px auto 20px;
+    list-style-type: none;
+   border-radius: 10px;
+   opacity: .9;
+   display: flex;
+   position: relative;
+   vertical-align: middle;
+}
+
+.todo__item__complete,
+.todo__item__delete{
+    position: absolute;
+    top: 20px;
+}
+.todo__item__complete{
+    left: 20px;
+}
+.todo__item__delete{
+    right: 20px;
+}
+@media (hover: hover){
+    .todo__item__complete:hover{
+        
+    }
+}
+
+
+.todo__item__text{
+    text-align: center;
+    width: 100%;
+}
+

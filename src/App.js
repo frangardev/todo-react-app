@@ -17,12 +17,13 @@ let todos = [
 function App(props) {
   return (
    <React.Fragment>
-
+     <h1 className="title">ToDo React App</h1>
      <TodoCounter />
 
      <TodoSearch />
-      
+
      <TodoList>
+       <h3 className="todo-list__title">TodoList</h3>
         {todos.map(todo => (
           <TodoItem key={todo.text} text={todo.text}/>
         ))}
