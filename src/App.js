@@ -7,25 +7,25 @@ import {CreateTodoButton} from './CreateTodoButton'
 import {TodoItem} from './TodoItem'
 
 let todos = [
-  {text: "Lavar el carro", complete: false},
+  {text: "Lavar el carro", complete: true},
   {text: "Sacar al perro", complete: false},
-  {text: "Limpiar el cuarto", complete: false},
+  {text: "Limpiar el cuarto", complete: true},
   {text: "Tomar la pastilla", complete: false},
-  {text: "Salir a correr", complete: false},
+  {text: "Salir a correr", complete: true},
 ]
 
 function App(props) {
   return (
    <React.Fragment>
      <h1 className="title">ToDo React App</h1>
-     <TodoCounter />
-
      <TodoSearch />
 
+     <TodoCounter />
+
      <TodoList>
-       <h3 className="todo-list__title">TodoList</h3>
+       <h3 className="todo-list__title"> <span><i class="fas fa-list-ul"></i></span> TodoList</h3>
         {todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text}/>
+          <TodoItem key={todo.text} complete={todo.complete} text={todo.text}/>
         ))}
      </TodoList>
 

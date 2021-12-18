@@ -5,33 +5,47 @@
     background-color: rgb(181, 228, 254);
     margin: 0px auto 20px;
     list-style-type: none;
-   border-radius: 10px;
-   opacity: .9;
+   border-radius: 20px;
    display: flex;
-   position: relative;
-   vertical-align: middle;
+   align-items: center;
 }
 
 .todo__item__complete,
 .todo__item__delete{
-    position: absolute;
-    top: 20px;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
 }
 .todo__item__complete{
     left: 20px;
+    background-color: white;
+    width: 2em;
+    height: 2em;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .todo__item__delete{
     right: 20px;
+    font-size: 2em;
 }
 @media (hover: hover){
-    .todo__item__complete:hover{
-        
+    .todo__item__delete:hover{
+        color: rgb(165, 28, 18);
     }
+    
 }
-
-
 .todo__item__text{
     text-align: center;
-    width: 100%;
+    width: calc(100% - 3em);
 }
-
+.todo__item-complete{
+    opacity: .5;
+}
+.todo__item-complete-p{
+    text-decoration: line-through;
+}
+.icon-check{
+    font-size: 1.2rem;
+}
