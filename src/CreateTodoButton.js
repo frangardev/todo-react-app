@@ -2,8 +2,16 @@ import react from "react";
 import './styles/CreateTodoButton.css'
 
 function CreateTodoButton(){
+    const createToDo =()=>{
+        alert("*Abre creador de tares XD*")
+    }
     return(
-        <button className="addTask"><i className="addTask__icon" class="far fa-times-circle"></i></button>
+        <button 
+            className="addTask"
+            onClick={createToDo}
+        >
+            <i className="addTask__icon" class="far fa-times-circle"></i>
+        </button>
 
     )
 }

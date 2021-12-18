@@ -23,7 +23,7 @@ function App(props) {
      <TodoCounter />
 
      <TodoList>
-       <h3 className="todo-list__title"> <span><i class="fas fa-list-ul"></i></span> TodoList</h3>
+       <h3 className="todo-list__title"> <span><i className="fas fa-list-ul"></i></span> TodoList</h3>
         {todos.map(todo => (
           <TodoItem key={todo.text} complete={todo.complete} text={todo.text}/>
         ))}
