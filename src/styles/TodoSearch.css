@@ -8,7 +8,7 @@
 .search{
     width: calc(80% - 3.5em);
     height: 3.5em;
-    border: rgb(181, 228, 254);;
+    border: var(--black);
     border-radius: 10px 0 0 10px;
     text-indent: 1em;
     display: block;
@@ -16,9 +16,9 @@
     outline:  none;
 }
 .search, .search__button{
-    
-    background-color: rgb(186, 175, 215);
-    /* color: #030322; */
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
 }
 .search:focus{
     box-shadow: 1px 1px 3px 2px solid black;
@@ -28,10 +28,9 @@
     width: 3.5em;
     cursor: pointer;
     border-radius: 0 10px 10px 0;
-    border: transparent;
+    /* border: transparent; */
 }
 .search__icon{
-    opacity: .4;
     padding: 1em;
 }
 .search__icon:hover{

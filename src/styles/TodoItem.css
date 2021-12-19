@@ -2,26 +2,27 @@
     width: 90%;
     max-width: 750px;
     height: 4em;
-    background-color: rgb(181, 228, 254);
+    background-color: var(--black);
     margin: 0px auto 20px;
     list-style-type: none;
    border-radius: 20px;
    display: flex;
    align-items: center;
+   border: 3px solid var(--white);
 }
 
-.todo__item__complete,
+.todo__item__complete-button,
 .todo__item__delete{
     position: relative;
-    border-radius: 50%;
+    border-radius: 10px;
     cursor: pointer;
 }
-.todo__item__complete{
+.todo__item__complete-button{
     left: 20px;
-    background-color: white;
+    background-color: var(--white);
     width: 2em;
     height: 2em;
-    border: 3px solid black;
+    border: 3px solid var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,5 +48,9 @@
     text-decoration: line-through;
 }
 .icon-check{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+.todo__item-complete .todo__item__complete-button{
+    background-color: var(--white);
+    color: var(--black);
 }

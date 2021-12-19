@@ -11,8 +11,8 @@
 .addTask i{
     transform: rotate(45deg);
     font-size: 3rem;
-    background-color: rgb(181, 228, 254);
-    color: #6a7ba0a1;
+    background-color: var(--black);
+    color: var(--white);
     border-radius: 50%;
     transition: top .2s;
 }
