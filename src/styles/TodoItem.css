@@ -33,7 +33,7 @@
 }
 @media (hover: hover){
     .todo__item__delete:hover{
-        color: rgb(165, 28, 18);
+        color: rgb(110, 31, 25);
     }
     
 }
