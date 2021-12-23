@@ -43,6 +43,7 @@
 }
 .todo__item-complete{
     opacity: .5;
+    border: rgb(117, 117, 117);
 }
 .todo__item-complete-p{
     text-decoration: line-through;

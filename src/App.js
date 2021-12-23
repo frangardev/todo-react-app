@@ -13,26 +13,25 @@ let dafaultTodos = [
   {text: "Tomar la pastilla", complete: false},
   {text: "Salir a correr", complete: true},
 ]
-const orderTodos = (todo) =>{
-  const todoComplete = todo.filter(item => item.complete)
-  const todoIncomplete = todo.filter(item => !item.complete)
 
-  const rta = []
-  rta.push(...todoIncomplete, ...todoComplete)
-  return rta
-}
 
 function App() {
-  const todoList = orderTodos(dafaultTodos)
-
   //Declaramos el estado de manera que todos los elementos de App puedan reaccionar al estado
-  const [todos, setTodos] = React.useState(todoList) //Esto para que la aplicación reaccione a los todos 
+  const [todos, setTodos] = React.useState(dafaultTodos) //Esto para que la aplicación reaccione a los todos 
   const [searchValue, setSearchValue] = React.useState('')
 
   //Para saber cuantas tareas hemos completado
-  const todosComplete = todoList.filter(item => item.complete).length
-  const totalTodos = todoList.length
+  const todosComplete = todos.filter(item => item.complete).length
+  const totalTodos = todos.length
 
+  const orderTodos = (todo) =>{
+    const todoComplete = todo.filter(item => item.complete)
+    const todoIncomplete = todo.filter(item => !item.complete)
+  
+    const rta = []
+    rta.push(...todoIncomplete, ...todoComplete)
+    return rta
+  }
 
   //Buscador:
   let searchTodos = []
@@ -40,7 +39,7 @@ function App() {
   if (!searchValue >= 1) {
     searchTodos = todos 
   }else{
-    searchTodos = todoList.filter(todo => {
+    searchTodos = todos.filter(todo => {
       const todoText = todo.text.toLowerCase()
       const searchText = searchValue.toLowerCase()
 
@@ -83,7 +82,7 @@ function App() {
 
      <TodoList>
        <h3 className="todo-list__title"> <span><i className="fas fa-list-ul"></i></span> TodoList</h3>
-        {searchTodos.map(todo => (
+        {orderTodos(searchTodos).map(todo => (
           <TodoItem 
               key={todo.text} 
               complete={todo.complete} 
