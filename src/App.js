@@ -30,24 +30,41 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('')
 
   //Para saber cuantas tareas hemos completado
-  const todoComplete = todoList.filter(item => item.complete).length
+  const todosComplete = todoList.filter(item => item.complete).length
   const totalTodos = todoList.length
 
 
   //Buscador:
+  let searchTodos = []
 
-let searchTodos = []
+  if (!searchValue >= 1) {
+    searchTodos = todos 
+  }else{
+    searchTodos = todoList.filter(todo => {
+      const todoText = todo.text.toLowerCase()
+      const searchText = searchValue.toLowerCase()
 
-if (!searchValue >= 1) {
-  searchTodos= todoList
-}else{
-  searchTodos = todoList.filter(todo => {
-    const todoText = todo.text.toLowerCase()
-    const searchText = searchValue.toLowerCase()
+      return todoText.includes(searchText)
+    })
+  }
 
-    return todoText.includes(searchText)
-  })
-}
+  const checkTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text)
+    const newTodos = [...todos]
+    if(newTodos[todoIndex].complete === true){
+      newTodos[todoIndex].complete = false
+    }else{
+      newTodos[todoIndex].complete = true
+    }
+    setTodos(newTodos)
+  }
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text)
+    const newTodos = [...todos]
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos)
+  }
 
 
   return (
@@ -61,13 +78,19 @@ if (!searchValue >= 1) {
 
      <TodoCounter 
         total = {totalTodos}
-        complete = {todoComplete}
+        complete = {todosComplete}
      />
 
      <TodoList>
        <h3 className="todo-list__title"> <span><i className="fas fa-list-ul"></i></span> TodoList</h3>
         {searchTodos.map(todo => (
-          <TodoItem key={todo.text} complete={todo.complete} text={todo.text}/>
+          <TodoItem 
+              key={todo.text} 
+              complete={todo.complete} 
+              text={todo.text}
+              checkTodo={() => checkTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+          />
         ))}
      </TodoList>
 
