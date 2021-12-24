@@ -1,10 +1,9 @@
 import react from "react";
 import { traverseTwoPhase } from "react-dom/cjs/react-dom-test-utils.production.min";
-import './styles/TodoCounter.css'
+import './TodoCounter.css'
 
 function TodoCounter({total, complete}){
     const porcentaje = Math.round(complete * 100 / total)
-    console.log(porcentaje);
     let msg = ''
 
     if(porcentaje === 0){
@@ -18,7 +17,7 @@ function TodoCounter({total, complete}){
     }else if(porcentaje == 100){
         msg = '¡Felicidades! Completaste todas tus tareas.'
     }else{
-        msg = `Hola, agrega una nueva tareas. `
+        msg = `Agrega una nueva tareas para comenzar. `
     }
 
     return(

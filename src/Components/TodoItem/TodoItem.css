@@ -19,7 +19,7 @@
 }
 .todo__item__complete-button{
     left: 20px;
-    background-color: var(--white);
+    background-color: var(--black);
     width: 2em;
     height: 2em;
     border: 3px solid var(--white);
@@ -35,7 +35,13 @@
     .todo__item__delete:hover{
         color: rgb(110, 31, 25);
     }
-    
+    .todo__item__complete-button:hover{
+        background-color: var(--gray);
+    }
+    .todo__item-complete .todo__item__complete-button:hover{
+        background-color: var(--gray);
+        border: 2px solid var(--white);
+    }
 }
 .todo__item__text{
     text-align: center;

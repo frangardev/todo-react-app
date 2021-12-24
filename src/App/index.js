@@ -1,10 +1,5 @@
 import React from "react";
-
-import {TodoCounter} from './TodoCounter'
-import {TodoSearch} from './TodoSearch'
-import {TodoList} from './TodoList'
-import {CreateTodoButton} from './CreateTodoButton'
-import {TodoItem} from './TodoItem'
+import {AppUi} from './AppUi'
 
 let dafaultTodos = [
   {text: "Lavar el carro", complete: true},
@@ -34,12 +29,12 @@ function App() {
   }
 
   //Buscador:
-  let searchTodos = []
+  let searchedTodos = []
 
   if (!searchValue >= 1) {
-    searchTodos = todos 
+    searchedTodos = todos 
   }else{
-    searchTodos = todos.filter(todo => {
+    searchedTodos = todos.filter(todo => {
       const todoText = todo.text.toLowerCase()
       const searchText = searchValue.toLowerCase()
 
@@ -67,35 +62,16 @@ function App() {
 
 
   return (
-   <React.Fragment>
-     <h1 className="title">ToDo React App</h1>
-     <TodoSearch 
-      //Asi le pasamos el estdo
-      searchValue = {searchValue}
-      setSearchValue = {setSearchValue}
-     />
-
-     <TodoCounter 
-        total = {totalTodos}
-        complete = {todosComplete}
-     />
-
-     <TodoList>
-       <h3 className="todo-list__title"> <span><i className="fas fa-list-ul"></i></span> TodoList</h3>
-        {orderTodos(searchTodos).map(todo => (
-          <TodoItem 
-              key={todo.text} 
-              complete={todo.complete} 
-              text={todo.text}
-              checkTodo={() => checkTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-     </TodoList>
-
-     <CreateTodoButton />
-
-   </React.Fragment>
+    <AppUi
+      totalTodos={totalTodos}
+      todosComplete={todosComplete}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      checkTodo={checkTodo}
+      deleteTodo={deleteTodo}
+      orderTodos={orderTodos}
+    />
   );
 }
 
