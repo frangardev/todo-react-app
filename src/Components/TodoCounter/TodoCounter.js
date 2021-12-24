@@ -11,7 +11,7 @@ function TodoCounter({total, complete}){
     }else if(porcentaje >= 1 && porcentaje < 50){
         msg = `Haz completado ${complete} tareas de ${total}.`
     }else if(porcentaje >= 50 && porcentaje < 75){
-        msg = `No te rindas, faltan ${complete} de ${total} tareas.`
+        msg = `No te rindas, faltan ${total - complete} de ${total} tareas.`
     }else if(porcentaje >= 75 && porcentaje < 100){
         msg = (complete < 1) ? `Ya casi. Faltan ${total - complete} tareas.`: `Ya casi. Solo falta ${total - complete} tarea.`
     }else if(porcentaje == 100){
