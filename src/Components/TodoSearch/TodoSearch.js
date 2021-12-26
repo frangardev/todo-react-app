@@ -19,7 +19,6 @@ function TodoSearch({searchValue, setSearchValue}){
          <button className="search__button">
              <i className=" search__icon fas fa-search"></i>
         </button>
-        <p className="me-borras-pendejo">{searchValue}</p>
        </div>
     )
 }

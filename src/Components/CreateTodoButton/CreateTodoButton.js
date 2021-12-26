@@ -10,7 +10,8 @@ function CreateTodoButton(){
             className="addTask"
             onClick={createToDo}
         >
-            <i className="addTask__icon" class="far fa-times-circle"></i>
+            {/* <i className="addTask__icon" class="far fa-times-circle"></i> */}
+            +
         </button>
 
     )

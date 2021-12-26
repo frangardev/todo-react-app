@@ -1,35 +1,10 @@
 import React from "react";
 import {AppUi} from './AppUi'
-
-const dafaultTodos = [
-  {text: "Lavar el carro", complete: true},
-  {text: "Sacar al perro", complete: false},
-  {text: "Limpiar el cuarto", complete: true},
-  {text: "Tomar la pastilla", complete: false},
-  {text: "Salir a correr", complete: true},
-]
+import {useLocalStorage} from '../utils/Hook-localStorage'
 
 function App() {
-  //Local Storage
-  const localStorageTodos = localStorage.getItem('TODOS_V1')
-  let parsedTodos
-
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    parsedTodos = [] //{text: "Agregar mis tareas", complete: false}
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos)
-  }
-
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos)
-    localStorage.setItem('TODOS_V1', stringifiedTodos)
-    setTodos(newTodos)
-  }
-
-
   //Declaramos el estado de manera que todos los elementos de App puedan reaccionar al estado
-  const [todos, setTodos] = React.useState(parsedTodos) //Esto para que la aplicación reaccione a los todos 
+  const [todos, setTodos] = useLocalStorage('TODOS_V1', [])//Esto para que la aplicación reaccione a los todos 
   const [searchValue, setSearchValue] = React.useState('')
 
   //Para saber cuantas tareas hemos completado
@@ -70,7 +45,7 @@ function App() {
     }else{
       newTodos[todoIndex].complete = true
     }
-    saveTodos(newTodos)
+    setTodos(newTodos)
   }
 
   //Eliminar una tarea
@@ -78,7 +53,7 @@ function App() {
     const todoIndex = todos.findIndex(todo => todo.text === text)
     const newTodos = [...todos]
     newTodos.splice(todoIndex, 1)
-    saveTodos(newTodos)
+    setTodos(newTodos)
   }
 
 
@@ -93,7 +68,7 @@ function App() {
       deleteTodo={deleteTodo}
       orderTodos={orderTodos}
     />
-  );
+  )
 }
 
 export default App;

@@ -2,44 +2,22 @@
     position: fixed;
     bottom: 30px;
     left: calc(80% - 15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
+    font-size: 3rem;
+    font-weight: 800;
     border-radius: 50%;
     background-color: transparent;
-    border: transparent;
-}
-.addTask i{
-    transform: rotate(45deg);
-    font-size: 3rem;
-    background-color: var(--black);
+    border: 5px solid var(--white);
     color: var(--white);
-    border-radius: 50%;
-    transition: top .2s;
 }
-.addTask i:hover{
-    top: -10px;
-    animation: addTaskAnim .5s 1;
+.addTask:hover{
+    /* top: -10px; */
+    /* animation: addTaskAnim .5s 1; */
     cursor: pointer;
-}
-
-@keyframes addTaskAnim {
-    0%{
-        transform: rotate(45deg);
-    }
-    10%{
-        transform: rotate(60deg);      
-    }
-    50%{
-        transform: rotate(120deg);
-    }
-    90%{
-        transform: rotate(300deg);
- 
-    }
-    99%{
-        transform: rotate(360deg);
-    }
-    100%{
-        transform: rotate(40deg);
-    }
+    transform: rotate(360deg);
+    transition-duration: 1s;
 }
