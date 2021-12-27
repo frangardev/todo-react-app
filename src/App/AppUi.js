@@ -5,6 +5,8 @@ import {TodoSearch} from '../Components/TodoSearch/TodoSearch'
 import {TodoList} from '../Components/TodoList/TodoList'
 import {CreateTodoButton} from '../Components/CreateTodoButton/CreateTodoButton'
 import {TodoItem} from '../Components/TodoItem/TodoItem'
+import {Modal} from '../Components/Modal/index'
+import { TodoForm } from "../Components/TodoForm/TodoForm";
 
 
 function AppUi({
@@ -16,6 +18,9 @@ function AppUi({
     checkTodo,
     deleteTodo,
     orderTodos,
+    openModal,
+    setOpenModal,
+    addTodo
 }) {
     return (
         <React.Fragment>
@@ -44,7 +49,19 @@ function AppUi({
                 ))}
             </TodoList>
 
-            <CreateTodoButton />
+            {openModal && (
+                <Modal>
+                    <TodoForm 
+                        addTodo={addTodo}
+                        setOpenModal={setOpenModal}
+                    />
+                </Modal>
+            )}
+
+            <CreateTodoButton
+             setOpenModal={setOpenModal}
+             openModal={openModal}
+             />
 
         </React.Fragment>
     );

@@ -14,10 +14,23 @@
     border: 5px solid var(--white);
     color: var(--white);
 }
-.addTask:hover{
-    /* top: -10px; */
-    /* animation: addTaskAnim .5s 1; */
-    cursor: pointer;
-    transform: rotate(360deg);
-    transition-duration: 1s;
+
+.closeAddTask{
+    z-index: 10;
+    transform: rotate(45deg);
+    border: 3px solid var(--white);
+}
+
+@media (hover: hover){
+    .addTask:hover{
+        cursor: pointer;
+        transform: rotate(360deg);
+        transition-duration: 1s;
+    }
+    .closeAddTask:hover{
+        color: var(--delite);
+        border-color: var(--delite);
+        transform: rotate(45deg);
+        transition-duration: .5s;
+    }
 }

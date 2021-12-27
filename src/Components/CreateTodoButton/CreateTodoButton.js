@@ -1,16 +1,16 @@
 import react from "react";
 import './CreateTodoButton.css'
 
-function CreateTodoButton(){
+function CreateTodoButton({openModal, setOpenModal}){
     const createToDo =()=>{
-        alert("*Abre creador de tares XD*")
+        (openModal) ? setOpenModal(false) : setOpenModal (true)
     }
     return(
         <button 
             className="addTask"
+            className={`addTask ${openModal && 'closeAddTask'}`}
             onClick={createToDo}
         >
-            {/* <i className="addTask__icon" class="far fa-times-circle"></i> */}
             +
         </button>
 

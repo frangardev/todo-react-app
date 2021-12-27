@@ -6,6 +6,7 @@ function App() {
   //Declaramos el estado de manera que todos los elementos de App puedan reaccionar al estado
   const [todos, setTodos] = useLocalStorage('TODOS_V1', [])//Esto para que la aplicación reaccione a los todos 
   const [searchValue, setSearchValue] = React.useState('')
+  const [openModal, setOpenModal] = React.useState(false)
 
   //Para saber cuantas tareas hemos completado
   const todosComplete = todos.filter(item => item.complete).length
@@ -56,6 +57,14 @@ function App() {
     setTodos(newTodos)
   }
 
+  const addTodo = (text) => {
+    const newTodos = [...todos]
+    newTodos.push({
+      complete: false,
+      text,
+    })
+    setTodos(newTodos)
+  }
 
   return (
     <AppUi
@@ -67,6 +76,9 @@ function App() {
       checkTodo={checkTodo}
       deleteTodo={deleteTodo}
       orderTodos={orderTodos}
+      openModal={openModal}
+      setOpenModal={setOpenModal}
+      addTodo={addTodo}
     />
   )
 }
