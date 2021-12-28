@@ -24,6 +24,8 @@ function TodoForm({addTodo, setOpenModal}){
         <form onSubmit={onSubmit} className="form">
             <label className="form__label">Crear una nueva tarea</label>
             <textarea 
+                autoFocus
+                required
                 className="form__textarea"
                 onFocus={true}
                 value={newTodoValue}

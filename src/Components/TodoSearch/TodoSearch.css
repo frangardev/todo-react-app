@@ -7,6 +7,7 @@
 
 .search{
     width: calc(80% - 3.5em);
+    max-width: calc(750px - 3.5em);
     height: 3.5em;
     border: var(--black);
     border-radius: 10px 0 0 10px;

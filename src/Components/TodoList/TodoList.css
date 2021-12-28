@@ -8,3 +8,6 @@
     border-radius: 50px 50px 0 0;
     margin-bottom: 0;
 }
+.todo-list__title{
+    max-width: 750px;
+}

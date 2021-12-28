@@ -32,6 +32,7 @@
 .todo__item__delete{
     right: 20px;
     font-size: 1.5rem;
+    opacity: .1;
 }
 
 .todo__item__text{
@@ -58,6 +59,7 @@
 @media (hover: hover){
     .todo__item__delete:hover{
         color: var(--delite);
+        opacity: 1;
     }
     .todo__item__complete-button:hover{
         background-color: var(--gray);
