@@ -17,7 +17,8 @@ function TodoItem(props){
                 className="todo__item__delete"
                 onClick={props.onDelete}
             >
-                <i class="far fa-times-circle"></i></span>
+                <i class="fas fa-times"></i>
+            </span>
         </li>
     )
 }

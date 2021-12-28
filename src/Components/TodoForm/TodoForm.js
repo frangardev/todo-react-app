@@ -1,4 +1,5 @@
 import React from "react";
+import './TodoForm.css'
 
 function TodoForm({addTodo, setOpenModal}){
     const [newTodoValue, setNewTodoValue] = React.useState('')
@@ -20,26 +21,30 @@ function TodoForm({addTodo, setOpenModal}){
     }
 
     return(
-        <form onSubmit={onSubmit}>
-            <label>...</label>
+        <form onSubmit={onSubmit} className="form">
+            <label className="form__label">Crear una nueva tarea</label>
             <textarea 
+                className="form__textarea"
+                onFocus={true}
                 value={newTodoValue}
                 onChange={onChange}
                 placeholder="Agregar Tarea"
             />
-            <div>
+            {/* <div className="form__button__container"> */}
                 <button
+                    className="form__button form__button-secondary"
                     type="button"
                     onClick={onCancel}
                 >
                     Cancelar    
                 </button>
                 <button
+                    className="form__button form__button-primary"
                     type="submit" //Es el tipo que envia el formulario
                 >
                     Añadir
                 </button>
-            </div>
+            {/* </div> */}
         </form>
     )
 }

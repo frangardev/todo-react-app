@@ -1,7 +1,8 @@
 .todo__item{
     width: 90%;
     max-width: 750px;
-    height: 4em;
+    min-height: 4em;
+    height: auto;
     background-color: var(--black);
     margin: 0px auto 20px;
     list-style-type: none;
@@ -9,12 +10,12 @@
    display: flex;
    align-items: center;
    border: 3px solid var(--white);
+   overflow: hidden;
 }
 
 .todo__item__complete-button,
 .todo__item__delete{
     position: relative;
-    border-radius: 10px;
     cursor: pointer;
 }
 .todo__item__complete-button{
@@ -26,26 +27,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 .todo__item__delete{
     right: 20px;
-    font-size: 2em;
+    font-size: 1.5rem;
 }
-@media (hover: hover){
-    .todo__item__delete:hover{
-        color: var(--delite);
-    }
-    .todo__item__complete-button:hover{
-        background-color: var(--gray);
-    }
-    .todo__item-complete .todo__item__complete-button:hover{
-        background-color: var(--gray);
-        border: 2px solid var(--white);
-    }
-}
+
 .todo__item__text{
-    text-align: center;
-    width: calc(100% - 3em);
+    /* text-align: center; */
+    width: calc(100% - 9em);
+    margin: 0 auto;
+    padding: 5px 0;
 }
 .todo__item-complete{
     opacity: .5;
@@ -60,4 +53,17 @@
 .todo__item-complete .todo__item__complete-button{
     background-color: var(--white);
     color: var(--black);
+}
+
+@media (hover: hover){
+    .todo__item__delete:hover{
+        color: var(--delite);
+    }
+    .todo__item__complete-button:hover{
+        background-color: var(--gray);
+    }
+    .todo__item-complete .todo__item__complete-button:hover{
+        background-color: var(--gray);
+        border: 2px solid var(--white);
+    }
 }
