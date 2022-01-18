@@ -11,3 +11,12 @@
 .todo-list__title{
     max-width: 750px;
 }
+
+.todo-list__title{
+    width: 90%;
+    margin: 0 auto 30px;
+    font-weight: 400;
+  }
+.Todos__container ul{
+    padding: 0;
+}

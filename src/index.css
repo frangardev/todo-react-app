@@ -36,9 +36,3 @@ code {
   position: relative;
   margin: 0 auto;
 }
-
-.todo-list__title{
-  width: 90%;
-  margin: 0 auto 30px;
-  font-weight: 400;
-}

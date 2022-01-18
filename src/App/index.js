@@ -9,6 +9,7 @@ import {CreateTodoButton} from '../Components/CreateTodoButton/CreateTodoButton'
 import {TodoItem} from '../Components/TodoItem/TodoItem'
 import {Modal} from '../Components/Modal/index'
 import { TodoForm } from "../Components/TodoForm/TodoForm";
+import { EmptySearchResults } from '../Components/EmptySearchResults/EmptySearchResults'
 
 
 function App() {
@@ -39,17 +40,23 @@ function App() {
                 total = {totalTodos}
                 complete = {todosComplete}
             />
-
-            <TodoList>
-            <h3 className="todo-list__title"> <span><i className="fas fa-list-ul"></i></span> TodoList</h3>
+            <TodoList
+                total = {searchedTodos.length}
+                searchText = {searchValue}
+                onEmptySearchResults = {(text)=> (
+                    <EmptySearchResults
+                        searchText = {text}
+                    />
+                )}
+            >
                 {orderTodos(searchedTodos).map(todo => (
-                <TodoItem 
-                    key={todo.text} 
-                    complete={todo.complete} 
-                    text={todo.text}
-                    checkTodo={() => checkTodo(todo.text)}
-                    onDelete={() => deleteTodo(todo.text)}
-                />
+                    <TodoItem 
+                        key={todo.text} 
+                        complete={todo.complete} 
+                        text={todo.text}
+                        checkTodo={() => checkTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
                 ))}
             </TodoList>
 
