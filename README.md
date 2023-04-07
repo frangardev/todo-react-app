@@ -1,5 +1,14 @@
 # Todo React App
-Aplicación de notas hecha en react.
+Aplicación web para crear tareas, hecha en React. Guardado de tareas en local utilizando local storage. 
+
+#### Puede ver el sitio [aquí](https://frangardev.github.io/todo-react-app/ "aquí")
+
+
+### Tecnologías
+* React
+* CSS
+
+------------
 
 # Getting Started with Create React App
 
